@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- /ajax1/src/main/webapp/20221019/fetch1.html -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>fetch 예제</title>
+<script>
+	function loadJsp() {
+		//원격호출함수. ECMA6에서 추가
+		fetch('test1.jsp')
+		.then((response) => response.text())//test1.jsp데이터를 응답받아서 text(): 응답메세지 문자열형태로 알려줌
+		.then((data) =>	//data = response.text()
+		document.querySelector("#demo").innerHTML= data) //data를 div demo안에 대입
+	}
+</script>
+</head>
+<body>
+<h2>fetch 함수</h2>
+<button type="button" onclick="loadJsp()">요청</button>
+<div id="demo"></div></body></html>
